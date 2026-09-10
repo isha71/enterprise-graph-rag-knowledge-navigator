@@ -42,7 +42,7 @@ class Settings(BaseSettings):
     groq_api_key: str = ""
     groq_base_url: str = "https://api.groq.com/openai/v1"
     groq_model: str = "openai/gpt-oss-20b"
-    groq_request_delay_seconds: float = 3
+    groq_request_delay_seconds: float = 12
 
     chunk_size: int = 1000
     chunk_overlap: int = 180

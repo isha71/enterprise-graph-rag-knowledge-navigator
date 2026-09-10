@@ -75,6 +75,8 @@ At query time, both retrieval paths run, their evidence is fused, reranked by a 
 
 ## Architecture
 
+> For detailed design decisions and component dependencies, see [`docs/architecture.md`](docs/architecture.md).
+
 ```mermaid
 flowchart TB
     subgraph Ingestion["📄 Ingestion Pipeline"]
@@ -181,9 +183,10 @@ graph LR
     Employee -->|WORKS_IN| Team
     Employee -->|MANAGES| Team
     Employee -->|MAINTAINS| Project
-    Employee -->|REPORTS_TO| Employee
+    Employee -->|REPORTS_TO| Department
 
     Team -->|OWNS| Project
+    Team -->|MAINTAINS| Service
 
     Project -->|USES| Technology
     Project -->|DEPENDS_ON| Service
@@ -228,13 +231,13 @@ graph LR
 | `WORKS_IN` | Employee belongs to team | Bob Chen → AI Platform Team |
 | `MANAGES` | Employee manages team | Bob Chen → AI Platform Team |
 | `OWNS` | Team owns project | AI Platform Team → Project Atlas |
-| `MAINTAINS` | Employee maintains project | Alice Morgan → Project Atlas |
+| `MAINTAINS` | Employee maintains project / Team maintains service | Alice Morgan → Project Atlas, Platform Team → Auth Service |
 | `USES` | Project/service uses technology | Project Atlas → Neo4j |
 | `DEPENDS_ON` | Project/service depends on service | Project Atlas → Identity Service |
 | `SUPPORTED_BY` | Technology supported by vendor | Neo4j → GraphSphere Technologies |
 | `AFFECTS` | Incident affects service | INC-104 → Identity Service |
 | `GOVERNED_BY` | Project governed by policy | Project Atlas → AI Data Governance Policy |
-| `REPORTS_TO` | Employee reports to entity | Bob Chen → CTO Office |
+| `REPORTS_TO` | Employee reports to department | Bob Chen → CTO Office |
 
 ---
 
@@ -578,13 +581,13 @@ Two citation types are returned:
 
 - **Python 3.11+**
 - **Docker** and **Docker Compose** (for Qdrant and Neo4j)
-- **Ollama** (for local LLM) or an **OpenAI API key**
+- **Ollama** (for local LLM) or an **OpenAI API key** or a **Groq API key** (free tier)
 
 ### 1. Clone the Repository
 
 ```bash
 git clone <repository-url>
-cd "Enterprise GraphRAG Knowledge Navigator"
+cd enterprise-graph-rag-knowledge-navigator
 ```
 
 ### 2. Create a Virtual Environment
@@ -942,4 +945,4 @@ Enterprise GraphRAG Knowledge Navigator/
 
 ## License
 
-See individual dependency licenses for third-party components.
+This project is licensed under the [MIT License](LICENSE). See individual dependency licenses for third-party components.
