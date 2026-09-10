@@ -942,4 +942,4 @@ Enterprise GraphRAG Knowledge Navigator/
 
 ## License
 
-This project is a portfolio demonstration. See individual dependency licenses for third-party components.
+See individual dependency licenses for third-party components.
