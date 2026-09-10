@@ -768,6 +768,27 @@ The fast retrieval evaluation uses 4 carefully chosen questions emphasizing mult
 
 > **Note:** This evaluation uses a small synthetic dataset. Results reflect the behavior of the system on this specific dataset and should not be interpreted as general benchmark claims.
 
+### Example Real Run
+
+A real single-question retrieval evaluation snapshot is included for question `mh_002`:
+
+> *"Which vendor supports the graph technology used by the project owned by Bob Chen's team?"*
+
+It demonstrates successful retrieval of the multi-hop path:
+
+```
+Bob Chen → AI Platform Team → Project Atlas → Neo4j → GraphSphere Technologies
+```
+
+**Observed results:**
+
+| Mode | evidence_hit | graph_path_hit |
+|---|---|---|
+| Vector-only | ✅ True | — |
+| GraphRAG | ✅ True | ✅ True |
+
+The full result file is at [`evaluation/example_results/retrieval_mh_002.json`](evaluation/example_results/retrieval_mh_002.json). This snapshot is provided as an inspectable example run, not as a comprehensive benchmark. No aggregate accuracy-improvement claim is made from this single question.
+
 ---
 
 ## Tests
@@ -907,7 +928,8 @@ Enterprise GraphRAG Knowledge Navigator/
 │   ├── questions.json             # 16 evaluation questions (4 per category)
 │   ├── evaluator.py               # Full end-to-end evaluation engine
 │   ├── retrieval_evaluator.py     # Fast retrieval-focused evaluation
-│   └── results/                   # Generated evaluation results
+│   ├── results/                   # Generated evaluation results (gitignored)
+│   └── example_results/           # Committed example evaluation snapshot
 ├── scripts/
 │   ├── ingest_sample_data.py      # Batch ingestion script
 │   ├── run_evaluation.py          # Full evaluation runner

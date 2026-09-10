@@ -1,0 +1,52 @@
+{
+  "evaluation_type": "retrieval_single_question",
+  "timestamp": "2026-09-10T19:11:32.789591",
+  "question_count": 1,
+  "question_id": "mh_002",
+  "configuration": {
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "llm_provider": "groq"
+  },
+  "per_question": [
+    {
+      "id": "mh_002",
+      "category": "multi_hop",
+      "question": "Which vendor supports the graph technology used by the project owned by Bob Chen's team?",
+      "expected_answer_terms": [
+        "GraphSphere Technologies"
+      ],
+      "expected_path_entities": [
+        "Bob Chen",
+        "AI Platform Team",
+        "Project Atlas",
+        "Neo4j",
+        "GraphSphere Technologies"
+      ],
+      "vector_only": {
+        "question_id": "mh_002",
+        "category": "multi_hop",
+        "question": "Which vendor supports the graph technology used by the project owned by Bob Chen's team?",
+        "mode": "vector_only",
+        "evidence_hit": true,
+        "graph_path_hit": null,
+        "vector_evidence_count": 8,
+        "graph_evidence_count": 0,
+        "reranked_evidence_count": 6,
+        "errors": []
+      },
+      "graph_rag": {
+        "question_id": "mh_002",
+        "category": "multi_hop",
+        "question": "Which vendor supports the graph technology used by the project owned by Bob Chen's team?",
+        "mode": "graphrag",
+        "evidence_hit": true,
+        "graph_path_hit": true,
+        "vector_evidence_count": 8,
+        "graph_evidence_count": 12,
+        "reranked_evidence_count": 6,
+        "errors": []
+      }
+    }
+  ]
+}
