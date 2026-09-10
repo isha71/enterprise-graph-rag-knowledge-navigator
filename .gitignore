@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.env
+.venv/
+venv/
+
+# Testing
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Evaluation results (regenerated from actual runs)
+evaluation/results/*.json
+
+# OS
+.DS_Store
+__MACOSX/
+
+# IDE
+.idea/
+.vscode/
+/master_spec.md

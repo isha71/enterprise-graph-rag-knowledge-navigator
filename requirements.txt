@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+python-multipart
+qdrant-client
+sentence-transformers
+neo4j
+langgraph
+pypdf
+httpx
+pytest

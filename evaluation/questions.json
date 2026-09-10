@@ -1,0 +1,114 @@
+[
+  {
+    "id": "f_001",
+    "category": "factual",
+    "question": "Which team owns Project Atlas?",
+    "expected_answer_terms": ["AI Platform Team"],
+    "expected_path_entities": []
+  },
+  {
+    "id": "f_002",
+    "category": "factual",
+    "question": "Who manages the AI Platform Team?",
+    "expected_answer_terms": ["Bob Chen"],
+    "expected_path_entities": []
+  },
+  {
+    "id": "f_003",
+    "category": "factual",
+    "question": "Which database is used by Project Ledger?",
+    "expected_answer_terms": ["PostgreSQL"],
+    "expected_path_entities": []
+  },
+  {
+    "id": "f_004",
+    "category": "factual",
+    "question": "Who maintains Project Atlas?",
+    "expected_answer_terms": ["Alice Morgan"],
+    "expected_path_entities": []
+  },
+  {
+    "id": "s_001",
+    "category": "semantic",
+    "question": "Who is responsible for looking after Project Atlas?",
+    "expected_answer_terms": ["Alice Morgan"],
+    "expected_path_entities": []
+  },
+  {
+    "id": "s_002",
+    "category": "semantic",
+    "question": "Which service does Atlas rely on for identity functionality?",
+    "expected_answer_terms": ["Identity Service"],
+    "expected_path_entities": []
+  },
+  {
+    "id": "s_003",
+    "category": "semantic",
+    "question": "Which group is responsible for the Ledger initiative?",
+    "expected_answer_terms": ["Payments Platform Team"],
+    "expected_path_entities": []
+  },
+  {
+    "id": "s_004",
+    "category": "semantic",
+    "question": "What technology provides Atlas's graph database capability?",
+    "expected_answer_terms": ["Neo4j"],
+    "expected_path_entities": []
+  },
+  {
+    "id": "r_001",
+    "category": "relationship",
+    "question": "Which technologies are used by projects owned by the AI Platform Team?",
+    "expected_answer_terms": ["Neo4j", "FastAPI"],
+    "expected_path_entities": ["AI Platform Team", "Project Atlas"]
+  },
+  {
+    "id": "r_002",
+    "category": "relationship",
+    "question": "Which services are dependencies of projects owned by the Payments Platform Team?",
+    "expected_answer_terms": ["Fraud Detection Service"],
+    "expected_path_entities": ["Payments Platform Team", "Project Ledger"]
+  },
+  {
+    "id": "r_003",
+    "category": "relationship",
+    "question": "Which projects are maintained by members of the AI Platform Team?",
+    "expected_answer_terms": ["Project Atlas"],
+    "expected_path_entities": ["AI Platform Team", "Alice Morgan"]
+  },
+  {
+    "id": "r_004",
+    "category": "relationship",
+    "question": "Which policies govern the two major projects?",
+    "expected_answer_terms": ["AI Data Governance Policy", "Payments Security Policy"],
+    "expected_path_entities": []
+  },
+  {
+    "id": "mh_001",
+    "category": "multi_hop",
+    "question": "Which technology is used by the project owned by the team managed by Bob Chen?",
+    "expected_answer_terms": ["Neo4j"],
+    "expected_path_entities": ["Bob Chen", "AI Platform Team", "Project Atlas", "Neo4j"]
+  },
+  {
+    "id": "mh_002",
+    "category": "multi_hop",
+    "question": "Which vendor supports the graph technology used by the project owned by Bob Chen's team?",
+    "expected_answer_terms": ["GraphSphere Technologies"],
+    "expected_path_entities": ["Bob Chen", "AI Platform Team", "Project Atlas", "Neo4j", "GraphSphere Technologies"]
+  },
+  {
+    "id": "mh_003",
+    "category": "multi_hop",
+    "question": "Which downstream service does Project Atlas indirectly depend on through Identity Service?",
+    "expected_answer_terms": ["Authentication Gateway"],
+    "expected_path_entities": ["Project Atlas", "Identity Service", "Authentication Gateway"]
+  },
+  {
+    "id": "mh_004",
+    "category": "multi_hop",
+    "question": "Which vendor supports the technology used by the authentication service indirectly required by Project Atlas?",
+    "expected_answer_terms": ["CacheWorks"],
+    "expected_path_entities": ["Project Atlas", "Identity Service", "Authentication Gateway", "Redis", "CacheWorks Ltd"]
+  }
+]
